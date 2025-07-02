@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMTV MUSIC</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="prefetch" href="acusticos.html" as="document" />
+  <link rel="prefetch" href="artistas.html" as="document" />
+  <link rel="prefetch" href="novedades.html" as="document" />
+  <link rel="prefetch" href="playlist.html" as="document" />
+  <link rel="prefetch" href="ranking.html" as="document" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900|Unbounded:wght@200..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" />
+</head>
+
+<body>
+    <aside class="sidebar collapsed" id="sidebar">
+
+
+        <div class="sidebar-top">
+            <button class="icon-button logo">
+                <img src="imagen/pc/home/sidebar/logo.png" alt="Logo" class="icon-img" />
+                <span class="label"></span>
+            </button>
+        </div>
+
+
+        <nav class="sidebar-middle">
+            <button class="icon-button" onclick="window.location.href='index.html'">
+                <img src="imagen/pc/home/sidebar/inicio.svg" alt="Inicio" class="icon-img" />
+                <span class="label">Inicio</span>
+            </button>
+            <button class="icon-button" onclick="window.location.href='artistas.html'">
+                <img src="imagen/pc/home/sidebar/artista.svg" alt="Artistas" class="icon-img" />
+                <span class="label">Artistas</span>
+            </button>
+            <button class="icon-button" onclick="window.location.href='novedades.html'">
+                <img src="imagen/pc/home/sidebar/novedades.svg" alt="Novedades" class="icon-img" />
+                <span class="label">Novedades</span>
+            </button>
+            <button class="icon-button" onclick="window.location.href='ranking.html'">
+                <img src="imagen/pc/home/sidebar/ranking.svg" alt="Ranking" class="icon-img" />
+                <span class="label">Ranking</span>
+            </button>
+            <button class="icon-button" onclick="window.location.href='acusticos.html'">
+                <img src="imagen/pc/home/sidebar/acusticos.svg" alt="CMTV Acústicos" class="icon-img" />
+                <span class="label">Acústicos</span>
+            </button>
+            <button class="icon-button" onclick="window.location.href='playlist.html'">
+                <img src="imagen/pc/home/sidebar/playlist.svg" alt="Playlist" class="icon-img" />
+                <span class="label">Playlist</span>
+            </button>
+            <button class="icon-button">
+                <img src="imagen/pc/home/sidebar/extras.svg" alt="Extras" class="icon-img" />
+                <span class="label">Extras</span>
+            </button>
+        </nav>
+        <section class="player">
+            <!-- cabecera -->
+            <div class="player-header">
+                <button id="collapsePlayer" class="collapse-btn">
+                    <i class="ri-arrow-down-s-line"></i>
+                </button>
+                <span class="now-playing">SONANDO AHORA</span>
+            </div>
+
+            <!-- título -->
+            <h2 id="songTitle" class="song-title">–</h2>
+
+            <!-- barra + tiempos -->
+            <div class="progress-wrapper">
+                <input type="range" id="progressBar" value="0" max="100" />
+                <div class="time-stamps">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalTime">0:00</span>
+                </div>
+            </div>
+
+            <!-- controles -->
+            <div class="controls">
+                <button id="prev" class="skip-btn">
+                    <i class="ri-skip-back-fill"></i>
+                </button>
+
+                <button id="playPause" class="play-btn">
+                    <img src="imagen/pc/home/sidebar/play.svg" alt="Play" class="icon-img" />
+                </button>
+
+                <button id="next" class="skip-btn">
+                    <i class="ri-skip-forward-fill"></i>
+                </button>
+            </div>
+
+            <!-- audio oculto -->
+            <audio id="audio"></audio>
+        </section>
+    </aside>
+    <button class="login-button-fixed">
+        INICIAR SESIÓN <i class="ri-user-line"></i>
+    </button>
+
+    <!-- Buscador e inicio de sesion -->
+</body>

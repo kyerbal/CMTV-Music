@@ -1,308 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CMTV MUSIC</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="prefetch" href="acusticos.html" as="document" />
-    <link rel="prefetch" href="artistas.html" as="document" />
-    <link rel="prefetch" href="novedades.html" as="document" />
-    <link rel="prefetch" href="playlist.html" as="document" />
-    <link rel="prefetch" href="ranking.html" as="document" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900|Unbounded:wght@200..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css"
-    />
-  </head>
-  <body>
-    <aside class="sidebar" id="sidebar">
-      <button class="toggle-btn" onclick="toggleSidebar()">
-        <i class="ri-arrow-right-s-line"></i>
-      </button>
 
-      <div class="sidebar-top">
-        <button class="icon-button logo">
-          <img
-            src="imagen/pc/home/sidebar/logo.png"
-            alt="Logo"
-            class="icon-img"
-          />
-          <span class="label"></span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMTV MUSIC</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="prefetch" href="acusticos.html" as="document" />
+  <link rel="prefetch" href="artistas.html" as="document" />
+  <link rel="prefetch" href="novedades.html" as="document" />
+  <link rel="prefetch" href="playlist.html" as="document" />
+  <link rel="prefetch" href="ranking.html" as="document" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900|Unbounded:wght@200..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" />
+</head>
+
+<body>
+  <aside class="sidebar collapsed" id="sidebar">
+
+
+    <div class="sidebar-top">
+      <button class="icon-button logo">
+        <img src="imagen/pc/home/sidebar/logo.png" alt="Logo" class="icon-img" />
+        <span class="label"></span>
+      </button>
+    </div>
+
+    <nav class="sidebar-middle">
+      <button class="icon-button" onclick="window.location.href='index.html'">
+        <img src="imagen/pc/home/sidebar/inicio.svg" alt="Inicio" class="icon-img" />
+        <span class="label">Inicio</span>
+      </button>
+      <button class="icon-button" onclick="window.location.href='artistas.html'">
+        <img src="imagen/pc/home/sidebar/artista.svg" alt="Artistas" class="icon-img" />
+        <span class="label">Artistas</span>
+      </button>
+      <button class="icon-button" onclick="window.location.href='novedades.html'">
+        <img src="imagen/pc/home/sidebar/novedades.svg" alt="Novedades" class="icon-img" />
+        <span class="label">Novedades</span>
+      </button>
+      <button class="icon-button" onclick="window.location.href='ranking.html'">
+        <img src="imagen/pc/home/sidebar/ranking.svg" alt="Ranking" class="icon-img" />
+        <span class="label">Ranking</span>
+      </button>
+      <button class="icon-button" onclick="window.location.href='acusticos.html'">
+        <img src="imagen/pc/home/sidebar/acusticos.svg" alt="CMTV Acústicos" class="icon-img" />
+        <span class="label">Acústicos</span>
+      </button>
+      <button class="icon-button" onclick="window.location.href='playlist.html'">
+        <img src="imagen/pc/home/sidebar/playlist.svg" alt="Playlist" class="icon-img" />
+        <span class="label">Playlist</span>
+      </button>
+      <button class="icon-button" onclick="window.location.href='extras.html'">
+        <img src="imagen/pc/home/sidebar/extras.svg" alt="Extras" class="icon-img" />
+        <span class="label">Extras</span>
+      </button>
+    </nav>
+    <section class="player">
+      <!-- cabecera -->
+      <div class="player-header">
+        <button id="collapsePlayer" class="collapse-btn">
+          <i class="ri-arrow-down-s-line"></i>
+        </button>
+        <span class="now-playing">SONANDO AHORA</span>
+      </div>
+
+      <!-- título -->
+      <h2 id="songTitle" class="song-title">–</h2>
+
+      <!-- barra + tiempos -->
+      <div class="progress-wrapper">
+        <input type="range" id="progressBar" value="0" max="100" />
+        <div class="time-stamps">
+          <span id="currentTime">0:00</span>
+          <span id="totalTime">0:00</span>
+        </div>
+      </div>
+
+      <!-- controles -->
+      <div class="controls">
+        <button id="prev" class="skip-btn">
+          <i class="ri-skip-back-fill"></i>
+        </button>
+
+        <button id="playPause" class="play-btn">
+          <img src="imagen/pc/home/sidebar/play.svg" alt="Play" class="icon-img" />
+        </button>
+
+        <button id="next" class="skip-btn">
+          <i class="ri-skip-forward-fill"></i>
         </button>
       </div>
 
-      <nav class="sidebar-middle">
-        <button class="icon-button">
-          <img
-            src="imagen/pc/home/sidebar/inicio.svg"
-            alt="Inicio"
-            class="icon-img"
-          />
-          <span class="label">Inicio</span>
-        </button>
-        <button class="icon-button">
-          <img
-            src="imagen/pc/home/sidebar/artista.svg"
-            alt="Artistas"
-            class="icon-img"
-          />
-          <span class="label">Artistas</span>
-        </button>
-        <button class="icon-button">
-          <img
-            src="imagen/pc/home/sidebar/novedades.svg"
-            alt="Novedades"
-            class="icon-img"
-          />
-          <span class="label">Novedades</span>
-        </button>
-        <button class="icon-button">
-          <img
-            src="imagen/pc/home/sidebar/ranking.svg"
-            alt="Ranking"
-            class="icon-img"
-          />
-          <span class="label">Ranking</span>
-        </button>
-        <button class="icon-button">
-          <img
-            src="imagen/pc/home/sidebar/acusticos.svg"
-            alt="CMTV Acústicos"
-            class="icon-img"
-          />
-          <span class="label">Acústicos</span>
-        </button>
-        <button class="icon-button">
-          <img
-            src="imagen/pc/home/sidebar/playlist.svg"
-            alt="Playlist"
-            class="icon-img"
-          />
-          <span class="label">Playlist</span>
-        </button>
-        <button class="icon-button">
-          <img
-            src="imagen/pc/home/sidebar/extras.svg"
-            alt="Extras"
-            class="icon-img"
-          />
-          <span class="label">Extras</span>
-        </button>
-      </nav>
-      <section class="player">
-        <!-- cabecera -->
-        <div class="player-header">
-          <button id="collapsePlayer" class="collapse-btn">
-            <i class="ri-arrow-down-s-line"></i>
-          </button>
-          <span class="now-playing">SONANDO AHORA</span>
-        </div>
+      <!-- audio oculto -->
+      <audio id="audio"></audio>
+    </section>
+  </aside>
 
-        <!-- título -->
-        <h2 id="songTitle" class="song-title">–</h2>
+  <!--- iniciar sesion-->
+  <button class="login-button-fixed">
+    INICIAR SESIÓN <i class="ri-user-line"></i>
+  </button>
 
-        <!-- barra + tiempos -->
-        <div class="progress-wrapper">
-          <input type="range" id="progressBar" value="0" max="100" />
-          <div class="time-stamps">
-            <span id="currentTime">0:00</span>
-            <span id="totalTime">0:00</span>
-          </div>
-        </div>
+  <!-- Buscador e inicio de sesion -->
 
-        <!-- controles -->
-        <div class="controls">
-          <button id="prev" class="skip-btn">
-            <i class="ri-skip-back-fill"></i>
-          </button>
-
-          <button id="playPause" class="play-btn">
-            <i class="ri-play-fill"></i>
-          </button>
-
-          <button id="next" class="skip-btn">
-            <i class="ri-skip-forward-fill"></i>
-          </button>
-        </div>
-
-        <!-- audio oculto -->
-        <audio id="audio"></audio>
-      </section>
-    </aside>
-    <button class="login-button-fixed">
-      INICIAR SESIÓN <i class="ri-user-line"></i>
-    </button>
-
-    <!-- Buscador e inicio de sesion -->
-
-    <main class="main-content">
-      <section class="search-section">
-        <div class="search-bar">
+  <main class="main-content">
+    <section class="search-section">
+      <div class="search-bar">
+        <div class="search-bar-inner">
           <input type="text" placeholder="Artistas, Shows, Lanzamientos" />
           <button class="search-icon">
             <i class="ri-search-line"></i>
           </button>
         </div>
-      </section>
-      <section class="carousel">
-        <div class="carousel-slide">
-          <img src="imagen/pc/home/novedades/img banner 1.png" alt="Imagen 1" />
-          <div class="carousel-caption"></div>
-        </div>
-        <div class="carousel-slide">
-          <img src="imagen/pc/home/novedades/img banner2.png" alt="Imagen 2" />
-          <div class="carousel-caption"></div>
-        </div>
-        <div class="carousel-slide">
-          <img src="imagen/pc/home/novedades/img banner 3.png" alt="Imagen 3" />
-          <div class="carousel-caption"></div>
-        </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-      </section>
-      <h2 class="titulo-seccion">Artistas Destacados</h2>
-      <div class="glider-contain">
-        <div class="glider">
-          <div class="glider-slide">
-            <div class="slide-content">
-              <img src="imagen/pc/home/artistas/abel.png" alt="Abel Pintos" />
-              <h3>Abel Pintos</h3>
-              <button>Ver más</button>
-            </div>
-          </div>
-          <div class="glider-slide">
-            <div class="slide-content">
-              <img src="imagen/pc/home/artistas/bad bunny.png" alt="Bad Bunny" />
-              <h3>Bad Bunny</h3>
-              <button>Ver más</button>
-            </div>
-          </div>
-          <div class="glider-slide">
-            <div class="slide-content">
-              <img src="imagen/pc/home/artistas/dillom.png" alt="Dillom" />
-              <h3>Dillom</h3>
-              <button>Ver más</button>
-            </div>
-          </div>
-          <div class="glider-slide">
-            <div class="slide-content">
-              <img src="imagen/pc/home/artistas/emilia mernes.png" alt="Emilia Mernes" />
-              <h3>Emilia Mernes</h3>
-              <button>Ver más</button>
-            </div>
-          </div>
-          <div class="glider-slide">
-            <div class="slide-content">
-              <img src="imagen/pc/home/artistas/gustavo cerartti.png" alt="Gustavo Cerati" />
-              <h3>Gustavo Cerati</h3>
-              <button>Ver más</button>
-            </div>
-          </div>
-        </div>
-
-        <button role="button" aria-label="Previous" class="glider-prev">
-          «
-        </button>
-        <button role="button" aria-label="Next" class="glider-next">»</button>
-        <div class="dots"></div>
       </div>
-    </main>
+    </section>
 
-    <!-- =================== SITE FOOTER =================== -->
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <!-- Brand & Social -->
-        <div class="footer-brand">
-          <img
-            src="imagen/pc/home/sidebar/logo.png"
-            alt="CMTV logo"
-            class="footer-logo"
-          />
-          <ul class="social">
-            <li>
-              <a href="https://www.facebook.com/cmtvargentina/"
-                ><i class="ri-facebook-fill"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://www.tiktok.com/@cmtv.com.ar"
-                ><i class="ri-tiktok-fill"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/cmtvargentina/?hl=es"
-                ><i class="ri-instagram-line"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/user/CMTVmusica"
-                ><i class="ri-youtube-fill"></i
-              ></a>
-            </li>
+    <section class="carousel">
+      <button class="prev">&#10094;</button>
+      <div class="carousel-slide">
+        <img src="imagen/pc/home/novedades/img banner 1.png" alt="Imagen 1" onclick="window.location.href='artistas.html'"/>
+        <div class="carousel-caption"></div>
+      </div>
+      <div class="carousel-slide">
+        <img src="imagen/pc/home/novedades/img banner2.png" alt="Imagen 2"  onclick="window.location.href='ranking.html'"/>
+        <div class="carousel-caption"></div>
+      </div>
+      <div class="carousel-slide">
+        <img src="imagen/pc/home/novedades/img banner 3.png" alt="Imagen 3" onclick="window.location.href='novedades.html'"/>
+        <div class="carousel-caption"></div>
+      </div>
+        <div class="carousel-slide">
+        <img src="imagen/pc/home/novedades/img banner 4.png" alt="Imagen 4" onclick="window.location.href='playlist.html'" />
+        <div class="carousel-caption"></div>
+      </div>
+
+      <button class="next">&#10095;</button>
+    </section>
+    <h2 class="titulo-seccion">LOS ARTISTAS MÁS BUSCADOS  </h2>
+    <div class="carruselSecundario-container">
+      <button class="scroll-btn left" onclick="scrollCarruselSecundario(-1)">❮</button>
+      <div class="carruselSecundario">
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/abel.png" alt="Abel Pintos">
+          <h3>Abel Pintos</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/bad bunny.png" alt="Bad bunny">
+          <h3>Bad bunny</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas//carol g.png" alt="Carol G">
+          <h3>Carol G</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/catriel.png" alt="catriel">
+          <h3>Ca7riel y Pacco Amoroso</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/dillom.png" alt="dillom">
+          <h3>Dillom</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/emilia mernes.png" alt="emilia mernes">
+          <h3>Emilia Mernes</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/feid.png" alt="feid">
+          <h3>Feid</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/gustavo cerartti.png" alt="gustavo cerartti">
+          <h3>Gustavo Cerartti</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/hermetica.png" alt="hermetica">
+          <h3>Hermetica</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/indio solari.png" alt="indio solari">
+          <h3>Indio Solari</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/jesse joy.png" alt="jesse joy">
+          <h3>Jesse Joy</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/l gante.png" alt="l gante">
+          <h3>L-Gante</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/maria becerra.png" alt="maria becerra">
+          <h3>Maria Becerra</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/nafta.png" alt="nafta">
+          <h3>Nafta</h3>
+          <button>Ver más</button>
+        </div>
+        <div class="card">
+          <img src="imagen/pc/home/artistas/ozuna.png" alt="Ozuna">
+          <h3>Ozuna</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/pablo lezacano.png" alt="pablo lezacano">
+          <h3>Pablo Lezacano</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/q lokura.png" alt="q lokura">
+          <h3>Q Lokura</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/tan bionica.png" alt="Tan Biónica">
+          <h3>Tan Biónica</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/ulises bueno.png" alt="ulises bueno">
+          <h3>Ulises Bueno</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/virus.png" alt="virus">
+          <h3>Virus</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/wos.png" alt="wos">
+          <h3>Wos</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/ximena.png" alt="ximena">
+          <h3>Ximena</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/yami.png" alt="Yami">
+          <h3>Yami Safdie</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/yatra.png" alt="Yatra">
+          <h3>Yatra</h3>
+          <button>Ver más</button>
+        </div>
+
+        <div class="card">
+          <img src="imagen/pc/home/artistas/tan bionica.png" alt="Tan Biónica">
+          <h3>Tan Biónica</h3>
+          <button>Ver más</button>
+        </div>
+      </div>
+      <button class="scroll-btn right" onclick="scrollCarruselSecundario(1)">❯</button>
+    </div>
+
+    <section class="noticias">
+      <h2 class="titulo-seccion">NOTICIAS MÁS LEIDAS</h2>
+      <div class="noticias-grid">
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 1.png" alt="Noticia 1">
+          <div class="noticia-titulo">
+            El Zar inicia su gira internacional Paradiso Tour 2025
+          </div>
+        </div>
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 2.png" alt="Noticia 2">
+          <div class="noticia-titulo">
+            Marcela Morelo lleva su gira al Teatro Argentino
+          </div>
+        </div>
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 3.png" alt="Noticia 3">
+          <div class="noticia-titulo">
+            Los Caballeros de la Quema llegan al Movistar Arena
+          </div>
+        </div>
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 4.png" alt="Noticia 4">
+          <div class="noticia-titulo">
+            Gabino Silva presenta su primer EP
+          </div>
+        </div>
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 5.png" alt="Noticia 5">
+          <div class="noticia-titulo">
+            La UBA otorgará el título de Doctor Honoris Causa a Charly García
+          </div>
+        </div>
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 6.png" alt="Noticia 6">
+          <div class="noticia-titulo">
+            Enrique Bunbury llega a Buenos Aires
+          </div>
+        </div>
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 7.png" alt="Noticia 7">
+          <div class="noticia-titulo">
+            Pedro Aznar se presentará en el Teatro Argentino
+          </div>
+        </div>
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 8.png" alt="Noticia 8">
+          <div class="noticia-titulo">
+            Ráfaga despide Buenos Aires en el Teatro Regina
+          </div>
+        </div>
+
+        <div class="noticia">
+          <img src="imagen/pc/noticias/noticia 9.png" alt="Noticia 9">
+          <div class="noticia-titulo">
+            ¿Vuelve La Renga?
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="ranking-section">
+      <h2 class="titulo-seccion">TOP 5 RANK1NG SEMANALES</h2>
+      <h2 class="subtitulo-seccion">¿Ya votaste esta semana?</h2>
+      <div class="ranking-grid">
+        <div class="cuadrado" onclick="window.location.href='ranking.html'">
+          <img src="imagen/pc/ranking/top1.png" alt="top1">
+        </div>
+        <div class="cuadrado" onclick="window.location.href='ranking.html'">
+          <img src="imagen/pc/ranking/top2.png" alt="top2">
+        </div>
+        <div class="cuadrado" onclick="window.location.href='ranking.html'">
+          <img src="imagen/pc/ranking/top3.png" alt="top3">
+        </div>
+        <div class="cuadrado" onclick="window.location.href='ranking.html'">
+          <img src="imagen/pc/ranking/top4.png" alt="top4">
+        </div>
+        <div class="cuadrado" onclick="window.location.href='ranking.html'">
+          <img src="imagen/pc/ranking/top5.png" alt="top5">
+        </div>
+      </div>
+    </section>
+
+    <!-- Fondo blobs decorativo -->
+    <div class="fondo-blobs"></div>
+
+    <!-- Sección de cards de acústicos -->
+    <section class="acusticos-section">
+      <h2 class="titulo-seccion">CMTV ACÚSTICOS</h2>
+      <h2 class="subtitulo-seccion">¿Ya votaste quien queres que sea el próximo?</h2>
+      <div class="acusticos-grid">
+        <div class="acustico-card">
+          <a href="https://youtu.be/xZi8bxkDY3A?si=4KZ1gcYmcEG2-0iS" target="_blank" rel="noopener">
+            <img src="imagen/pc/acustico/ataque77.png" alt="Attaque 77">
+            <p>"ARRANCACORAZONES"<br><strong>ATTAQUE 77</strong></p>
+          </a>
+        </div>
+        <div class="acustico-card">
+          <a href="https://youtu.be/l6Y0YnwLME8?si=dfYVYFL6b_dRiv2m" target="_blank" rel="noopener">
+            <img src="imagen/pc/acustico/bersuit vergarabat.png" alt="Bersuit">
+            <p>"QUÉ TAL SI / TOCO Y ME VOY"<br><strong>BERSUIT VERGARABAT</strong></p>
+          </a>
+        </div>
+        <div class="acustico-card">
+          <a href="https://youtu.be/b96sJUa8fxI?si=hdNE-2jn22Tba8qr" target="_blank" rel="noopener">
+            <img src="imagen/pc/acustico/las pastillas del abuelo.png" alt="Las Pastillas">
+            <p>"NEBLINA"<br><strong>LAS PASTILLAS DEL ABUELO</strong></p>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="playlist-section">
+      <h2 class="playlist-title">PLAYLIST</h2>
+      <p class="playlist-subtitle">Crea o escucha una de nuestras playlists y ¡disfrutá de la experiencia!</p>
+
+      <div class="playlist-slider-wrapper">
+        <button class="playlist-btn prev">‹</button>
+
+        <div class="playlist-slider" id="playlistSlider">
+          <div class="playlist-card create">
+            <div class="icono-mas">+</div>
+            <p>Crear una <br> Playlist</p>
+          </div>
+          <div class="playlist-card">
+            <img src="imagen/pc/playlist/Rock Nacional.png" alt="Rock Nacional">
+            <p>ROCK NACIONAL</p>
+          </div>
+          <div class="playlist-card">
+            <img src="imagen/pc/playlist/Cumbia.png" alt="Esto es Cumbia">
+            <p>ESTO ES CUMBIA</p>
+          </div>
+          <div class="playlist-card">
+            <img src="imagen/pc/playlist/Pop Argentino.png" alt="Pop Argentino">
+            <p>POP ARGENTINO</p>
+          </div>
+          <div class="playlist-card">
+            <img src="imagen/pc/playlist/Vibras Latinas Playlsit.png" alt="Latino">
+            <p>VIBRAS LATINAS</p>
+          </div>
+        </div>
+
+        <button class="playlist-btn next">›</button>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- =================== SITE FOOTER =================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <!-- Brand & Social -->
+      <div class="footer-brand">
+        <img src="imagen/pc/home/sidebar/logo.png" alt="CMTV logo" class="footer-logo" />
+        <ul class="social">
+          <li>
+            <a href="https://www.facebook.com/cmtvargentina/"><i class="ri-facebook-fill"></i></a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@cmtv.com.ar"><i class="ri-tiktok-fill"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/cmtvargentina/?hl=es"><i class="ri-instagram-line"></i></a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/user/CMTVmusica"><i class="ri-youtube-fill"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columns -->
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>CMTV.com.ar</h3>
+          <ul>
+            <li><a href="#">Artistas</a></li>
+            <li><a href="#">Novedades</a></li>
+            <li><a href="#">Ranking</a></li>
+            <li><a href="#">CMTV Acústicos</a></li>
+            <li><a href="#">Playlist</a></li>
           </ul>
         </div>
 
-        <!-- Columns -->
-        <div class="footer-columns">
-          <div class="footer-col">
-            <h3>CMTV.com.ar</h3>
-            <ul>
-              <li><a href="#">Artistas</a></li>
-              <li><a href="#">Novedades</a></li>
-              <li><a href="#">Ranking</a></li>
-              <li><a href="#">CMTV Acústicos</a></li>
-              <li><a href="#">Playlist</a></li>
-            </ul>
-          </div>
+        <div class="footer-col">
+          <h3>Extras</h3>
+          <ul>
+            <li><a href="#">#Data</a></li>
+            <li><a href="#">Acústicos</a></li>
+            <li><a href="#">Frases de Canciones</a></li>
+            <li><a href="#">Erase una vez</a></li>
+          </ul>
+        </div>
 
-          <div class="footer-col">
-            <h3>Extras</h3>
-            <ul>
-              <li><a href="#">#Data</a></li>
-              <li><a href="#">Acústicos</a></li>
-              <li><a href="#">Frases de Canciones</a></li>
-              <li><a href="#">Erase una vez</a></li>
-            </ul>
-          </div>
+        <div class="footer-col">
+          <h3>Nosotros</h3>
+          <ul>
+            <li><a href="#">Quienes somos</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
 
-          <div class="footer-col">
-            <h3>Nosotros</h3>
-            <ul>
-              <li><a href="#">Quienes somos</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col contact">
-            <h3>Contacto</h3>
-            <ul>
-              <li>
-                <i class="ri-mail-line"></i>
-                <a href="mailto:publicidad@cmtv.com.ar"
-                  >publicidad@cmtv.com.ar</a
-                >
-              </li>
-              <li><i class="ri-phone-line"></i> +54 9 1157947153</li>
-            </ul>
-          </div>
+        <div class="footer-col contact">
+          <h3>Contacto</h3>
+          <ul>
+            <li>
+              <i class="ri-mail-line"></i>
+              <a href="mailto:publicidad@cmtv.com.ar">publicidad@cmtv.com.ar</a>
+            </li>
+            <li><i class="ri-phone-line"></i> +54 9 1157947153</li>
+          </ul>
         </div>
       </div>
-    </footer>
-    <!-- Antes de cerrar </body> -->
-    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+    </div>
+  </footer>
+  <!-- Antes de cerrar </body> -->
+  <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
