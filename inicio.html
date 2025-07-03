@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarme - CMTV</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/singup.css">
+</head>
+
+<body>
+  <main class="main-container">
+    <div class="titulo-registro">
+      <button class="registro-btn">Registrarme</button>
+      <h1>¡Te damos la bienvenida!</h1>
+    </div>
+    <div class="cerrar-btn" onclick="window.history.back();">✕</div>
+  </main>
+
+  <section class="registro-body">
+    <video class="fondo-video" autoplay muted loop>
+      <source src="video/fondo.mp4" type="video/mp4" />
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="formulario">
+      <div class="registro">
+      <img src="imagen/pc/inicio/LOGO CMTV.png" alt="Logo CMTV" class="logo" />
+      <h2>¿Primera vez por acá?</h2>
+      <p>Registrate y unite a la comunidad de CMTV</p>
+      <form id="registroForm">
+        <label>Nombre</label>
+        <input type="text" placeholder="Ingresá tu nombre" required />
+        <label>Correo electrónico</label>
+        <input type="email" placeholder="Ingresá tu correo electrónico" required />
+        <label>Contraseña</label>
+        <input type="password" placeholder="Ingresá tu contraseña" required />
+        <label>Repetí tu contraseña</label>
+        <input type="password" placeholder="Ingresá tu contraseña" required />
+        <button type="submit" class="boton-submit">REGISTRARME</button>
+      </form>
+      <small><a href="registrado.html">¡YA TENGO UNA CUENTA!</a></small>
+      </div>
+    </div>
+  </section>
+  <!-- =================== SITE FOOTER =================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <!-- Brand & Social -->
+      <div class="footer-brand">
+        <img src="imagen/pc/home/sidebar/logo.png" alt="CMTV logo" class="footer-logo" />
+        <ul class="social">
+          <li>
+            <a href="https://www.facebook.com/cmtvargentina/"><i class="ri-facebook-fill"></i></a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@cmtv.com.ar"><i class="ri-tiktok-fill"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/cmtvargentina/?hl=es"><i class="ri-instagram-line"></i></a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/user/CMTVmusica"><i class="ri-youtube-fill"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columns -->
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>CMTV.com.ar</h3>
+          <ul>
+            <li><a href="artistas.html">Artistas</a></li>
+            <li><a href="novedades.html">Novedades</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="acusticos.html">CMTV Acústicos</a></li>
+            <li><a href="playlist.html">Playlist</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Extras</h3>
+          <ul>
+            <li><a href="extras.html">#Data</a></li>
+            <li><a href="extras.html">Acústicos</a></li>
+            <li><a href="extras.html">Frases de Canciones</a></li>
+            <li><a href="extras.html">Erase una vez</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Nosotros</h3>
+          <ul>
+            <li><a href="#">Quienes somos</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col contact">
+          <h3>Contacto</h3>
+          <ul>
+            <li>
+              <i class="ri-mail-line"></i>
+              <a href="mailto:publicidad@cmtv.com.ar">publicidad@cmtv.com.ar</a>
+            </li>
+            <li><i class="ri-phone-line"></i> +54 9 1157947153</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
